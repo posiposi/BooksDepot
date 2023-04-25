@@ -17,4 +17,9 @@ class Book extends Model
         'publisher_id',
         'impression_id',
     ];
+
+    public function findAll()
+    {
+        return Book::all();
+    }
 }
