@@ -1,19 +1,113 @@
 <template>
   <v-container>
-    <p>Top Page</p>
-    <h1>{{ count }}</h1>
-    <v-btn color="blue" @click="count++">Increment</v-btn>
-
-    <router-link to="/next">To Next Page →</router-link>
-
-    <div>
-      <v-icon icon="mdi-account" class="ma-4" />
-      <v-btn icon="mdi-account" color="success" class="ma-4"></v-btn>
-    </div>
+    <v-data-table v-model:items-per-page="itemsPerPage" :headers="headers" :items="desserts" item-value="name"
+      class="elevation-1"></v-data-table>
   </v-container>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-const count = ref <number> (1);
+
+// ページネーション
+const itemsPerPage = ref<number>(5);
+// ヘッダー
+type headerContents = { title: string; align: string; sortable?: boolean; key: string; };
+const headers: headerContents[] = [
+  {
+    title: 'Dessert (100g serving)',
+    align: 'start',
+    sortable: false,
+    key: 'name',
+  },
+  { title: 'Calories', align: 'end', key: 'calories' },
+  { title: 'Fat (g)', align: 'end', key: 'fat' },
+  { title: 'Carbs (g)', align: 'end', key: 'carbs' },
+  { title: 'Protein (g)', align: 'end', key: 'protein' },
+  { title: 'Iron (%)', align: 'end', key: 'iron' },
+];
+// 表内容
+type dessertContens = { name: string; calories: number; fat: number; carbs: number; protein: number; iron: string; };
+const desserts: dessertContens[] = [
+  {
+    name: 'Frozen Yogurt',
+    calories: 159,
+    fat: 6.0,
+    carbs: 24,
+    protein: 4.0,
+    iron: '1',
+  },
+  {
+    name: 'Jelly bean',
+    calories: 375,
+    fat: 0.0,
+    carbs: 94,
+    protein: 0.0,
+    iron: '0',
+  },
+  {
+    name: 'KitKat',
+    calories: 518,
+    fat: 26.0,
+    carbs: 65,
+    protein: 7,
+    iron: '6',
+  },
+  {
+    name: 'Eclair',
+    calories: 262,
+    fat: 16.0,
+    carbs: 23,
+    protein: 6.0,
+    iron: '7',
+  },
+  {
+    name: 'Gingerbread',
+    calories: 356,
+    fat: 16.0,
+    carbs: 49,
+    protein: 3.9,
+    iron: '16',
+  },
+  {
+    name: 'Ice cream sandwich',
+    calories: 237,
+    fat: 9.0,
+    carbs: 37,
+    protein: 4.3,
+    iron: '1',
+  },
+  {
+    name: 'Lollipop',
+    calories: 392,
+    fat: 0.2,
+    carbs: 98,
+    protein: 0,
+    iron: '2',
+  },
+  {
+    name: 'Cupcake',
+    calories: 305,
+    fat: 3.7,
+    carbs: 67,
+    protein: 4.3,
+    iron: '8',
+  },
+  {
+    name: 'Honeycomb',
+    calories: 408,
+    fat: 3.2,
+    carbs: 87,
+    protein: 6.5,
+    iron: '45',
+  },
+  {
+    name: 'Donut',
+    calories: 452,
+    fat: 25.0,
+    carbs: 51,
+    protein: 4.9,
+    iron: '22',
+  },
+];
+
 </script>
