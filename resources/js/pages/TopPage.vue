@@ -1,8 +1,6 @@
 <template>
-  <v-container>
-    <v-data-table v-model:items-per-page="itemsPerPage" :headers="headers" :items="desserts" item-value="name"
-      class="elevation-1"></v-data-table>
-  </v-container>
+  <v-data-table v-model:items-per-page="itemsPerPage" :headers="headers" :items="desserts" item-value="name"
+    class="elevation-1"></v-data-table>
 </template>
 
 <script setup lang="ts">
@@ -109,5 +107,4 @@ const desserts: dessertContens[] = [
     iron: '22',
   },
 ];
-
 </script>
