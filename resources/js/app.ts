@@ -9,9 +9,9 @@ import { VDataTable } from 'vuetify/labs/VDataTable'
 
 const app = createApp(App)
 const vuetify = createVuetify({
-    components: {
-        VDataTable,
-    },
+	components: {
+		VDataTable,
+	},
 })
 
 app.use(router)

@@ -13,9 +13,9 @@ class BookController extends Controller
      */
     public function index(GetAllBooks $useCase)
     {
-        return response()->json([
-            'allBooks' => $useCase->execute(),
-        ]);
+        return response()->json(
+            $useCase->execute()
+        );
     }
 
     /**
