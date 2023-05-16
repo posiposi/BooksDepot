@@ -5,9 +5,17 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Core\src\Book\UseCase\GetAllBooks\GetAllBooks;
+use Core\src\Book\UseCase\RegisterBook\RegisterBook;
 
 class BookController extends Controller
 {
+    private $registerBookUseCase;
+
+    public function __construct(RegisterBook $registerBook)
+    {
+        $this->registerBookUseCase = $registerBook;
+    }
+
     /**
      * 全書籍レコード取得
      */
@@ -19,11 +27,11 @@ class BookController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * 書籍登録
      */
-    public function store(Request $request)
+    public function store($request)
     {
-        //
+        $this->registerBookUseCase->execute($request);
     }
 
     /**
