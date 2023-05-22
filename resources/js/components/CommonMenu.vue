@@ -16,7 +16,7 @@
       </v-list>
     </v-navigation-drawer>
     <!-- 書籍登録ダイアログ -->
-    <v-dialog v-model="isRegisterDialog" width="auto">
+    <v-dialog v-model="isRegisterDialog" width="700">
       <book-register-dialog @clickSubmit="toggleRegisterDialogDisplay()"></book-register-dialog>
     </v-dialog>
   </div>
