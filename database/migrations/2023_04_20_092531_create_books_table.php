@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('rating');
             $table->integer('author_id');
             $table->integer('publisher_id');
-            $table->integer('impression_id');
+            $table->integer('impression_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
